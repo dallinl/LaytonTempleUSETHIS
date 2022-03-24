@@ -15,6 +15,7 @@
             <td>Email</td>
             <td>Phone Number</td>
             <td>Time</td>
+            
         </tr>
     </thead>
 
@@ -28,8 +29,10 @@
                 <td>@x.email</td>
                 <td>@x.phone</td>
                 @*<td>x.timeslot</td>*@
-                <td><a asp-controller="Home" asp-action="Edit">Edit</a></td>
-                <td><a asp-controller="Home" asp-action="Delete">Delete</a></td>
+
+
+                <td><a asp-controller="Home" asp-action="Edit" asp-route-groupid="@x.GroupID">Edit</a></td>
+                <td><a asp-controller="Home" asp-action="Delete" asp-route-groupid="@x.GroupID">Delete</a></td>
             </tr>
         }
 

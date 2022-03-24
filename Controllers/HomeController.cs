@@ -26,19 +26,9 @@ namespace LaytonTemple.Controllers
 
         public IActionResult Appointments() // shows list of all made appointments 
         {
+            //I think this may be where the issue is. In the videos there is a "var applications = daContext.Responses" and then the return is "return View(applications)"
             return View(daContext.Groups);
         }
-
-        public IActionResult Edit()
-        {
-            return View();
-        }
-
-        public IActionResult Delete()
-        {
-            return View();
-        }
-
 
         [HttpGet]
         public IActionResult Sign_Up()
@@ -53,13 +43,42 @@ namespace LaytonTemple.Controllers
             return View("Form", x);
         }
 
-
         [HttpPost]
         public IActionResult Form(GroupView group)
         {
             daContext.Update(group);
             daContext.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int groupid)
+        {
+            var application = daContext.Groups.Single(x => x.GroupID == groupid);
+
+
+
+            return View("Form", application);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(GroupInfo blah)
+        {
+            daContext.Update(blah);
+            daContext.SaveChanges();
+
+
+            //This may need to be a redirect to action
+            return View("Appointments");
+        }
+
+        public IActionResult Delete(GroupInfo blah)
+        {
+            daContext.Groups.Remove(blah);
+            daContext.SaveChanges();
+
+
+            return View("Appointments");
         }
 
     }
