@@ -14,7 +14,8 @@ namespace LaytonTemple.Models
 
         }
 
-        public DbSet<GroupInfo> Groups { get; set; }
-        public DbSet<AvailableTimes> AvailableTimes { get; set; }
+        public DbSet<GroupView> Groups { get; set; }
+        
+        
     }
 }

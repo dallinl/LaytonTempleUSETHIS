@@ -1,7 +1,7 @@
 ﻿@{
 }
 
-@model IEnumerable<GroupInfo>
+@model List<GroupView>
 
 <h2> Below are the scheduled appointments. </h2>
 
@@ -24,11 +24,11 @@
         {
             <tr>
                 <td>@x.GroupID</td>
-                <td>@x.groupName</td>
-                <td>@x.groupSize</td>
-                <td>@x.email</td>
-                <td>@x.phone</td>
-                @*<td>x.timeslot</td>*@
+                <td>@x.groupinfo.groupName</td>
+                <td>@x.groupinfo.groupSize</td>
+                <td>@x.groupinfo.email</td>
+                <td>@x.groupinfo.phone</td>
+                <td>@x.Timeslot.TimeSlot</td>
 
 
                 <td><a asp-controller="Home" asp-action="Edit" asp-route-groupid="@x.GroupID">Edit</a></td>

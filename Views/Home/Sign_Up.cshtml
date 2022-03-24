@@ -2,7 +2,7 @@
     ViewData["Title"] = "Sign Up Page";
 }
 
-@model LaytonTemple.Models.ViewModels.GroupView
+@model LaytonTemple.Models.AvailableTimes
 <h2>Sign-Up</h2>
 <br />
 
@@ -11,7 +11,7 @@
 <div>
     <form method="post">
         <label>Select a time: </label>
-        <select asp-for="Timeslot">
+        <select asp-for="TimeSlot">
             @*Monday*@
             <option value="04/04/22 8:00AM">04/04/22 8:00AM</option>
             <option value="04/04/22 9:00AM">04/04/22 9:00AM</option>
